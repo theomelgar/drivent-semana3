@@ -22,9 +22,9 @@ export async function getRoomsByHotelId(req: AuthenticatedRequest, res: Response
   const { userId } = req as { userId: number };
 
   try {
-    const { rooms } = await hotelsService.getRoomsByHotelId(Number(hotelId), userId);
+    const { hotelRooms } = await hotelsService.getRoomsByHotelId(Number(hotelId), userId);
 
-    return res.status(httpStatus.OK).send(rooms);
+    return res.status(httpStatus.OK).send(hotelRooms);
   } catch (error) {
     if (error.name === 'InvalidDataError') return res.status(httpStatus.BAD_REQUEST).send(error.message);
 

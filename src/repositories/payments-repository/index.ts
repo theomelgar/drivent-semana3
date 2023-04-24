@@ -18,4 +18,6 @@ async function createPayment(ticketId: number, params: PaymentParams) {
   });
 }
 
-export default { findPaymentByTicketId, createPayment };
+const paymentService = { findPaymentByTicketId, createPayment };
+
+export default paymentService;
